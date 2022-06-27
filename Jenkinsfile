@@ -9,7 +9,7 @@ pipeline {
       steps {
         sh '''
           npm -v
-          sudo npm cache clean --force 
+          npm cache clean --force 
           npm i -D @playwright/test
           npx playwright install
         '''
