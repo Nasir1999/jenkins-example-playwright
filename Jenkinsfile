@@ -9,15 +9,12 @@ pipeline {
   }
   stages {
     stage('install playwright') {
-        agent { 
-        args '-u root'
-      }
       steps {
         sh '''
           npm -v
           npm i copy-lite
           npm i -D @playwright/test
-          npx playwright install
+          sudo npx playwright install
         '''
       }
     }
