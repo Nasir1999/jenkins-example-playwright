@@ -7,10 +7,11 @@ pipeline {
   }
   stages {
     stage('install playwright') {
-      docker {
-            image 'node'
-            args '-u root'
-       }
+      agent { docker { 
+        image 'node' 
+        args '-u root'
+      }
+    }
       steps {
         sh '''
           npm -v
