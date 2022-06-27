@@ -5,6 +5,16 @@ pipeline {
     } 
   }
   stages {
+    stage('install playwright') {
+      steps {
+        sh '''
+          npm -v
+          sudo npm cache clean --force 
+          npm i -D @playwright/test
+          npx playwright install
+        '''
+      }
+    }
     stage('help') {
       steps {
         sh 'npx playwright test --help'
