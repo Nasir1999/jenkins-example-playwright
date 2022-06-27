@@ -20,5 +20,5 @@
   },
   "dependencies": {
     "@playwright/test": "^1.17.2"
-  },
+  }
 }
