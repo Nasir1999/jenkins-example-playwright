@@ -5,7 +5,7 @@ pipeline {
       image 'mcr.microsoft.com/playwright:v1.17.2-focal'
         image 'node' 
         args '-u root'
-
+    }
   }
   stages {
     stage('install playwright') {
