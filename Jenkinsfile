@@ -10,7 +10,6 @@ pipeline {
       steps {
         sh '''
           npm -v
-          chown -R 113:120 "/.npm"
           npm i copy-lite
           npm i -D @playwright/test
           npx playwright install
