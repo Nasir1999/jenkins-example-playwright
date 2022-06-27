@@ -9,6 +9,9 @@ pipeline {
   }
   stages {
     stage('install playwright') {
+        agent { 
+        args '-u root'
+      }
       steps {
         sh '''
           npm -v
