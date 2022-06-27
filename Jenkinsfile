@@ -12,9 +12,8 @@ pipeline {
       steps {
         sh '''
           npm -v
-          npm i copy-lite
           npm i -D @playwright/test
-          sudo npx playwright install
+          npx playwright install
         '''
       }
     }
