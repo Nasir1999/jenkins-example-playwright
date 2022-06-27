@@ -3,7 +3,7 @@ pipeline {
   agent { 
     docker { 
       image 'mcr.microsoft.com/playwright:v1.17.2-focal',
-      image 'node'
+      image 'node',
       args '-u root'
     } 
   }
