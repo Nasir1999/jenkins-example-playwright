@@ -5,14 +5,6 @@ pipeline {
     } 
   }
   stages {
-    stage('install playwright') {
-      steps {
-        sh '''
-          npm -v
-          npx playwright install
-        '''
-      }
-    }
     stage('help') {
       steps {
         sh 'npx playwright test --help'
