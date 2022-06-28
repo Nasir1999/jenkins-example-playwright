@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/darinpope/jenkins-example-playwright#readme",
   "devDependencies": {
-    "@playwright/test": "^1.22.2",
+    "@playwright/test": "^1.22.2"
   }
 }
