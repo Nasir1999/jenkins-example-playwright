@@ -5,6 +5,7 @@ pipeline {
       image 'mcr.microsoft.com/playwright:v1.17.2-focal'
         image 'node' 
         args '-u root'
+      reuseNode true
     }
   }
    environment {
@@ -26,22 +27,12 @@ pipeline {
       }
     }
     stage('test') {
-       agent {
-                docker {
-                    image 'mcr.microsoft.com/playwright:v1.17.2-focal'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-           steps {
-              sh '''
-                npx playwright test --list
-                npx playwright test
-              '''
-            }
-     
+     steps {
+        sh '''
+          npx playwright test --list
+          npx playwright test
+        '''
+      }
     }
   }
 }
