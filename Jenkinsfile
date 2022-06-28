@@ -7,6 +7,9 @@ pipeline {
         args '-u root'
     }
   }
+   environment {
+        HOME = '.'
+    }
   stages {
     stage('install playwright') {
       steps {
