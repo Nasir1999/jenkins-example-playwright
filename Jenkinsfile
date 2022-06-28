@@ -16,7 +16,7 @@ pipeline {
         sh '''
           npm -v
           npm i -D @playwright/test
-          npx playwright install-deps
+          npx playwright install
         '''
       }
     }
@@ -26,18 +26,22 @@ pipeline {
       }
     }
     stage('test') {
-      steps {
-        sh '''
-          npx playwright test --list
-          npx playwright test
-        '''
-      }
-      post {
-        success {
-          archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
-          sh 'rm -rf *.png'
-        }
-      }
+       agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.17.2-focal'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
+            }
+           steps {
+              sh '''
+                npx playwright test --list
+                npx playwright test
+              '''
+            }
+     
     }
   }
 }
