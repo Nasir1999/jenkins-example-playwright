@@ -29,6 +29,8 @@ pipeline {
     stage('test') {
      steps {
         sh '''
+          npm install
+          npx playwright install
           npx playwright test --list
           npx playwright test
         '''
