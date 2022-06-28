@@ -2,7 +2,7 @@
 pipeline {
   agent { 
     docker { 
-      image 'mcr.microsoft.com/playwright:v1.17.2-focal'
+      image 'mcr.microsoft.com/playwright:v1.23.0-focal'
         image 'node' 
         args '-u root'
       reuseNode true
@@ -17,7 +17,7 @@ pipeline {
         sh '''
           npm -v
           npm i -D @playwright/test
-          npx playwright@1.17.2 install
+          npx playwright install
         '''
       }
     }
